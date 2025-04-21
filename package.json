@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc -b --noemit || true && vite build --outDir dist",
-    "lint": "bunx biome lint --write && bunx tsc --noEmit",
-    "format": "bunx biome format --write",
-    "preview": "vite preview"
+    "build": "npm run tsc -- -b --noemit || true && vite build --outDir dist",
+    "lint": "npm run biome -- lint --write && npm run tsc -- --noEmit",
+    "format": "npm run biome -- format --write",
+    "preview": "vite preview",
+    "tsc": "tsc",
+    "biome": "npx biome"
   },
   "dependencies": {
+    "@biomejs/biome": "1.9.4",
     "@tanstack/react-query": "^5.74.4",
     "axios": "^1.8.4",
     "chart.js": "^4.4.9",
@@ -27,7 +30,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
     "@eslint/js": "^9.18.0",
     "@types/node": "^22.14.1",
     "@types/react": "^18.3.18",

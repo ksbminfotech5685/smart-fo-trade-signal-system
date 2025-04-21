@@ -1,0 +1,17 @@
+[images]
+  remote_images = ["https://source.unsplash.com/.*", "https://images.unsplash.com/.*", "https://ext.same-assets.com/.*", "https://ugc.same-assets.com/.*"]
+
+[build]
+  command = "echo 'Skipping build step - using pre-built static files'"
+  publish = "dist"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://smart-fo-signal-api.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
